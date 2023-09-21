@@ -6,6 +6,7 @@ import torchmetrics
 
 class torchTrain:
     def __init__(self) -> None:
+        """Initialize a training and testing utility class for PyTorch models."""
         pass
 
     def train_step(self,
@@ -15,7 +16,20 @@ class torchTrain:
                    accuracy_fn,
                    optimizer: torch.optim.Optimizer,
                    device: torch.device):
-        
+        """Perform a single training step.
+
+        Args:
+            model (torch.nn.Module): The PyTorch model to train.
+            data_loader (torch.utils.data.DataLoader): DataLoader for training data.
+            loss_fn (nn.Module): The loss function used for training.
+            accuracy_fn: A function to calculate accuracy.
+            optimizer (torch.optim.Optimizer): The optimizer used for training.
+            device (torch.device): The device (CPU or GPU) to perform training on.
+
+        Returns:
+            tuple: A tuple containing train loss and train accuracy.
+        """
+
         model.to(device)
         ### Training step
         train_loss, train_acc = 0, 0
@@ -50,6 +64,18 @@ class torchTrain:
                   loss_fn: nn.Module,
                   accuracy_fn,
                   device: torch.device):
+        """Perform a single testing step.
+
+        Args:
+            model (torch.nn.Module): The PyTorch model to test.
+            data_loader (torch.utils.data.DataLoader): DataLoader for testing data.
+            loss_fn (nn.Module): The loss function used for testing.
+            accuracy_fn: A function to calculate accuracy.
+            device (torch.device): The device (CPU or GPU) to perform testing on.
+
+        Returns:
+            tuple: A tuple containing test loss and test accuracy.
+        """
         ### Testing step
         test_loss, test_acc = 0, 0
         model.eval()
@@ -80,6 +106,21 @@ class torchTrain:
               loss_fn: nn.Module = nn.CrossEntropyLoss(),
               epochs: int = 5,
               device = "cpu"):
+        """Train a PyTorch model.
+
+        Args:
+            model (torch.nn.Module): The PyTorch model to train.
+            train_dataloader (torch.utils.data.DataLoader): DataLoader for training data.
+            test_dataloader (torch.utils.data.DataLoader): DataLoader for testing data.
+            optimizer (torch.optim.Optimizer): The optimizer used for training.
+            accuracy_fn: A function to calculate accuracy.
+            loss_fn (nn.Module, optional): The loss function used for training and testing. Default is nn.CrossEntropyLoss().
+            epochs (int, optional): The number of training epochs. Default is 5.
+            device (str or torch.device, optional): The device (CPU or GPU) to perform training on. Default is "cpu".
+
+        Returns:
+            dict: A dictionary containing training and testing results including losses and accuracies.
+        """
 
         # Create dictionary to store results
         results = {"train_loss": [],
