@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from tqdm.auto import tqdm
 import torchmetrics
-
+from typing import Tuple
 
 class torchTrain:
     def __init__(self) -> None:
@@ -15,7 +15,7 @@ class torchTrain:
                    loss_fn: nn.Module,
                    accuracy_fn,
                    optimizer: torch.optim.Optimizer,
-                   device: torch.device):
+                   device: torch.device) -> Tuple[float, float]:
         """Perform a single training step.
 
         Args:
@@ -63,7 +63,7 @@ class torchTrain:
                   data_loader: torch.utils.data.DataLoader,
                   loss_fn: nn.Module,
                   accuracy_fn,
-                  device: torch.device):
+                  device: torch.device)-> Tuple[float, float]:
         """Perform a single testing step.
 
         Args:
@@ -105,7 +105,7 @@ class torchTrain:
               accuracy_fn: torchmetrics.Accuracy,
               loss_fn: nn.Module = nn.CrossEntropyLoss(),
               epochs: int = 5,
-              device = "cpu"):
+              device = "cpu") -> dict:
         """Train a PyTorch model.
 
         Args:
