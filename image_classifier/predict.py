@@ -37,7 +37,7 @@ class_names, class_to_idx = load_class_names(
             class_to_idx_path='./image_classifier/class_to_idx.json'
             )
 
-# 4. Load the model
+# 4. Load the model (if MLflow run is not given load from models dir)
 if MLFLOW_RUN is not None:
     model = mlflow.pytorch.load_model(f"runs:/{MLFLOW_RUN}/model").to(device)
 else:
