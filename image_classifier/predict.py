@@ -18,7 +18,7 @@ parser.add_argument("--mlflow-run",
                     help="MLflow run, retrieves model from this run")
 parser.add_argument("--model-path",
                     type=str,
-                    default="models/effnetb0_2023-09-27_test-acc-8555.pt",
+                    default="models/effnetb0_2023-09-28_test-acc-8555.pt",
                     help="Path of the model to use for predictions")
 
 args = parser.parse_args()
