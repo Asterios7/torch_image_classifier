@@ -10,7 +10,7 @@ from util_functions import (load_class_names,
 parser = argparse.ArgumentParser(description="Image classification prediction")
 parser.add_argument("--image-path",
                     type=str,
-                    default='data/oxford-iiit-pet/images/beagle_7.jpg',
+                    default='images/beagle-dog.jpg',
                     help="path of the image to classify")
 parser.add_argument("--mlflow-run",
                     type=str,
