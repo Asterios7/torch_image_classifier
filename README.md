@@ -20,3 +20,5 @@ Nvidia T4: ~00:03:10
 Nvidia RTX 3050: ~00:01:20
 
 ## Deployment
+
+Torchserve (WIP)
