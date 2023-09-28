@@ -113,7 +113,7 @@ def save_model(model: torch.nn.Module,
 
     # Create model save path
     assert model_name.endswith(".pth") or \
-           model_name.endswith(".pt"), "model_name should end with '.pt','.pth'"
+           model_name.endswith(".pt"), "model_name must end with '.pt','.pth'"
     model_save_path = os.path.join(target_dir, model_name)
 
     # Save the model state_dict()
@@ -209,8 +209,10 @@ def load_class_names(class_names_path: str,
         class_names, class_to_idx = load_class_names('class_names.json',
                                                      'class_to_idx.json')
     """
-    assert class_names_path.endswith(".json"), "class_names_path should end with class_names.json"
-    assert class_to_idx_path.endswith(".json"), "class_to_idx_path should end with class_to_idx.json"
+    assert class_names_path.endswith(".json"),\
+        "class_names_path should end with class_names.json"
+    assert class_to_idx_path.endswith(".json"),\
+        "class_to_idx_path should end with class_to_idx.json"
 
     with open(class_names_path, 'r') as fp:
         class_names = json.load(fp)['class_names']
