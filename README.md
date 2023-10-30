@@ -2,17 +2,39 @@
 
 Classifying the OxfordIIIPet dataset using Transfer Learning.
 
-## Dependencies
+## Notebook
 
-conda environment (WIP)
+You can find the project's google colab notebook at `notebooks/OxfordIIITPet_classification.py`.
 
-or
+## Train and predict
 
-docker (WIP)
+#### 1. Create environment and install dependencies
 
-## How to use
+1. Install miniconda
+2. Create a conda environment with `conda create -n <env_name> python=3.10`
+3. Activate the environment with `conda activate <env_name>`
+4. Install dependencies with `pip install -r requirements.txt`
 
-Steps:
+#### 2. Train
+
+Generate a model for image classification by running:
+
+`python image_classifier/train.py`
+
+See modifiable parameters with:
+
+`python image_classifier/train.py help`
+
+#### 3. Predict
+
+Make predictions with:
+
+`python image_classifier/predict.py --image-path <path/to/image.jpg>`
+
+Specify the model you want to use for prediction by either using the `--model-path <model_path>` or the
+`--mlflow-run <mlflow_run_id>` parameter. Example:
+
+`python image_classifier/predict.py --image-path <path/to/image.jpg> --mlflow-run <mlflow_run_id>`
 
 ## Traning times
 
