@@ -40,7 +40,3 @@ Specify the model you want to use for prediction by either using the `--model-pa
 
 Nvidia T4: ~00:03:10
 Nvidia RTX 3050: ~00:01:20
-
-## Deployment
-
-Torchserve (WIP)
